@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,11 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
 
   showTodosList: boolean = true;
+  @Output() activeView = new EventEmitter<string>();
 
   changeView(viewName){
     viewName === 'todo-list' ? this.showTodosList = true : this.showTodosList = false;
+    this.activeView.emit(viewName);
   }
 
 }
