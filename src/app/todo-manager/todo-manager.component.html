@@ -1,1 +1,19 @@
-<p>todo-manager works!</p>
+<h3>Create a new Todo</h3>
+<form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" id="title" [(ngModel)]="title" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" class="form-control" id="title" name="description" [(ngModel)]="description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success" (click)="onCreateTodoButtonClick()">Create</button>
+    <button id="clear-btn" type="submit" class="btn btn-warning" (click)="onClearButtonClicked()">Clear</button>
+    <div class="alert alert-danger todo-error" role="alert" *ngIf="todoError">
+        Todo needs a title and description
+    </div>
+    <div class="alert alert-success todo-error" role="alert" *ngIf="newTodoAdded">
+      A new Todo has been added
+    </div>
+</form>
