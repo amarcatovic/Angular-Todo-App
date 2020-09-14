@@ -9,4 +9,8 @@ export class NavbarComponent {
 
   showTodosList: boolean = true;
 
+  changeView(viewName){
+    viewName === 'todo-list' ? this.showTodosList = true : this.showTodosList = false;
+  }
+
 }
