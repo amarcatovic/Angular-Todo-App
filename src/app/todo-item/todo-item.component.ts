@@ -9,8 +9,18 @@ import Todo from '../models/Todo';
 export class TodoItemComponent implements OnInit {
 
   @Input() todo: Todo;
+  clicked: boolean = false;
 
   constructor() { }
+
+  onTodoCompleated(){
+    this.clicked = !this.clicked;
+    this.todo.done = !this.todo.done;
+  }
+
+  onTodoClicked(){
+    this.clicked = !this.clicked;
+  }
 
   ngOnInit(): void {
   }
