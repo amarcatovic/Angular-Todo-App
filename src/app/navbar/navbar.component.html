@@ -8,11 +8,11 @@
       <ul class="navbar-nav mr-auto">
         <form class="form-inline">
             <button class="btn" type="button"
-            [ngClass]="{'btn-outline-success': showTodosList === true, 'btn-outline-secondary': showTodosList === false}"
+            [ngClass]="{'btn-outline-success': showTodosList === true, 'btn-sm': showTodosList === false, 'btn-outline-secondary': showTodosList === false}"
             (click)="changeView('todo-list')"
             >Todos</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button"
-            [ngClass]="{'btn-outline-success': showTodosList === false, 'btn-outline-secondary': showTodosList === true}"
+            <button class="btn" type="button"
+            [ngClass]="{'btn-outline-success': showTodosList === false, 'btn-sm': showTodosList === true, 'btn-outline-secondary': showTodosList === true}"
             (click)="changeView('create-todo')"
             >Create Todo</button>
         </form>
