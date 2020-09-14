@@ -10,7 +10,7 @@ export class TodoListComponent implements OnInit {
 
   constructor() { }
 
-  todos: Todo[] = [];
+  todos: Todo[] = [new Todo(1, 'Title', 'Description', false, new Date().toDateString())];
 
   ngOnInit(): void {
   }
