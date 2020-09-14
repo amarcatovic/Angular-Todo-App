@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import Todo from '../models/Todo';
 
 @Component({
@@ -6,12 +6,10 @@ import Todo from '../models/Todo';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent{
 
   @Input() todo: Todo;
   clicked: boolean = false;
-
-  constructor() { }
 
   onTodoCompleated(){
     this.clicked = !this.clicked;
@@ -21,8 +19,4 @@ export class TodoItemComponent implements OnInit {
   onTodoClicked(){
     this.clicked = !this.clicked;
   }
-
-  ngOnInit(): void {
-  }
-
 }
