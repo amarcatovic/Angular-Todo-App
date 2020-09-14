@@ -7,8 +7,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <form class="form-inline">
-            <button class="btn btn-outline-success" type="button">Todos</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button">Create Todo</button>
+            <button class="btn" type="button"
+            [ngClass]="{'btn-outline-success': showTodosList === true, 'btn-outline-secondary': showTodosList === false}"
+            (click)="changeView('todo-list')"
+            >Todos</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button"
+            [ngClass]="{'btn-outline-success': showTodosList === false, 'btn-outline-secondary': showTodosList === true}"
+            (click)="changeView('create-todo')"
+            >Create Todo</button>
         </form>
       </ul>
     </div>
