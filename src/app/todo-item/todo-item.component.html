@@ -1,5 +1,14 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">{{ todo.title }}</li>
+    <ol class="breadcrumb todo-item" (click)="onTodoClicked()">
+        <div class="todo-left-side">
+            <input type="checkbox" [checked]="todo.done" (click)="onTodoCompleated()">
+            <li class="breadcrumb-item active" aria-current="page"
+            [ngStyle]="{'text-decoration': todo.done ? 'line-through' : 'none', 'font-size': '20px', 'font-weight': 'bold'}"
+            >{{ todo.title }}</li>
+        </div>
+        <li class="breadcrumb-item">Created {{ todo.dateCreated }}</li>
     </ol>
+    <div class="todo-details" *ngIf="clicked">
+        {{ todo.description }}
+    </div>
   </nav>
