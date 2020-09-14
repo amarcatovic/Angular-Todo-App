@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (activeView)="selectTodoView($event)"></app-navbar>
 <div class="container">
     <app-todo-list></app-todo-list>
     <app-todo-manager></app-todo-manager>
