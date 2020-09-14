@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Todos": {
+    "todos": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Todos"
+    }
+  },
+  "defaultProject": "Todos",
+  "cli": {
+    "analytics": false
+  }
 }
