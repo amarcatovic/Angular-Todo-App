@@ -1,5 +1,5 @@
 <app-navbar (activeView)="selectTodoView($event)"></app-navbar>
 <div class="container">
-    <app-todo-list *ngIf="viewName === 'todo-list'"></app-todo-list>
-    <app-todo-manager *ngIf="viewName === 'create-todo'"></app-todo-manager>
+    <app-todo-list *ngIf="viewName === 'todo-list'" [todos]="todos"></app-todo-list>
+    <app-todo-manager *ngIf="viewName === 'create-todo'" (todoAdded)="addTodoToList($event)"></app-todo-manager>
 </div>
