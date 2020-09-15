@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { TodoService } from './../services/todo.service';
+import { Component } from '@angular/core';
 import Todo from '../models/Todo';
 
 @Component({
@@ -14,7 +15,7 @@ export class TodoManagerComponent {
   todoError: boolean = false;
   newTodoAdded: boolean = false;
 
-  @Output() todoAdded = new EventEmitter<Todo>();
+  constructor(private todoService: TodoService) {}
 
   onCreateTodoButtonClick(){
     if(this.title === '' || this.description === '')
@@ -24,7 +25,7 @@ export class TodoManagerComponent {
     else
     {
       const newTodo: Todo = new Todo(1, this.title, this.description, false, new Date().toLocaleString());
-      this.todoAdded.emit(newTodo);
+      this.todoService.addTodo(newTodo);
       this.onClearButtonClicked();
       this.newTodoAdded = true;
       setTimeout(_ => this.newTodoAdded = false, 3000);
@@ -36,5 +37,4 @@ export class TodoManagerComponent {
     this.description = '';
     this.todoError = false;
   }
-
 }
