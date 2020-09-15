@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { TodoService } from './../services/todo.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +9,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class NavbarComponent {
 
   showTodosList: boolean = true;
-  @Output() activeView = new EventEmitter<string>();
+
+  constructor(private todoService: TodoService) {}
 
   changeView(viewName){
     viewName === 'todo-list' ? this.showTodosList = true : this.showTodosList = false;
-    this.activeView.emit(viewName);
+    this.todoService.todoScreen.emit(viewName);
   }
-
 }
