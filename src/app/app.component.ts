@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { TodoService } from './services/todo.service';
+import { Component, OnInit } from '@angular/core';
 import Todo from './models/Todo';
 
 @Component({
@@ -6,16 +7,22 @@ import Todo from './models/Todo';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent { 
+export class AppComponent implements OnInit { 
   
-  todos: Todo[] = [new Todo(1, 'Title', 'Description', false, new Date().toDateString())];
+  todos: Todo[];
   viewName: string = 'todo-list';
+
+  constructor(private todoService: TodoService) {
+    this.todoService.todoScreen.subscribe((screenName: string) => {
+        this.viewName = screenName;
+    });
+  }
+
+  ngOnInit(){
+    this.todos = this.todoService.todos;
+  }
   
   selectTodoView(viewName){
       this.viewName = viewName;
-  }
-
-  addTodoToList(todo){
-    this.todos = [...this.todos, todo];
   }
 }
