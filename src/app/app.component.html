@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
 <div class="container">
-    <app-todo-list *ngIf="viewName === 'todo-list'" [todos]="todos"></app-todo-list>
-    <app-todo-manager *ngIf="viewName === 'create-todo'"></app-todo-manager>
+    <router-outlet></router-outlet>
 </div>

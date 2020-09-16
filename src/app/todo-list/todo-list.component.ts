@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { TodoService } from './../services/todo.service';
+import { Component } from '@angular/core';
 import Todo from '../models/Todo';
 
 @Component({
@@ -6,13 +7,11 @@ import Todo from '../models/Todo';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
+  
+  todos: Todo[];
 
-  constructor() { }
-
-   @Input() todos: Todo[];
-
-  ngOnInit(): void {
+  constructor(private todoService: TodoService) {
+      this.todos = todoService.todos;
   }
-
 }

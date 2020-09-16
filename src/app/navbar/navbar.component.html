@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <form class="form-inline">
-            <button class="btn" type="button"
-            [ngClass]="{'btn-outline-success': showTodosList === true, 'btn-sm': showTodosList === false, 'btn-outline-secondary': showTodosList === false}"
-            (click)="changeView('todo-list')"
+            <button class="btn"
+            [routerLink]="'/todos'" 
+            routerLinkActive="btn-outline-success" 
             >Todos</button>
-            <button class="btn" type="button"
-            [ngClass]="{'btn-outline-success': showTodosList === false, 'btn-sm': showTodosList === true, 'btn-outline-secondary': showTodosList === true}"
-            (click)="changeView('create-todo')"
+            <button class="btn"
+            [routerLink]="'/create'" 
+            routerLinkActive="btn-outline-success"
             >Create Todo</button>
         </form>
       </ul>

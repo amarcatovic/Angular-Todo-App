@@ -1,4 +1,3 @@
-import { TodoService } from './../services/todo.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,12 +7,6 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-  showTodosList: boolean = true;
 
-  constructor(private todoService: TodoService) {}
-
-  changeView(viewName){
-    viewName === 'todo-list' ? this.showTodosList = true : this.showTodosList = false;
-    this.todoService.todoScreen.emit(viewName);
-  }
+  constructor() {}
 }
